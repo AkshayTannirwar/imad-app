@@ -5,13 +5,79 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+
+var articleone = {
+  title: 'Article One | Akshay Tannirwar',
+  heading: 'Article One',
+  date:'August 10,2017',
+  content:`<p>
+                    This is the content of my first webapp.Article one is the web app to learn and explore things.This article will help me to built my first web app.I trying to learn nodejs from Tanmai Gopal from Hasura coaching.
+                </p>
+                <p>
+                     This is the content of my first webapp.Article one is the web app to learn and explore things.This article will help me to built my first web app.I trying to learn nodejs from Tanmai Gopal from Hasura coaching.f
+                </p>
+                 <p>
+                     This is the content of my first webapp.Article one is the web app to learn and explore things.This article will help me to built my first web app.I trying to learn nodejs from Tanmai Gopal from Hasura coaching.f
+                </p>
+                `
+};
+
+function createTemplate(data)
+{
+    var title = data.title;
+    var heading = data.heading;
+    var date = data.date;
+    var content = data.content;
+     
+    var htmlcontent =
+    <html>
+        <head>
+            <title>
+              ${title}
+            </title>
+            <beta name=viewport content = "width=device-width, initial-scale=1"></beta>
+            <link href="/ui/style.css" rel="stylesheet" />
+               
+        </head>
+        
+        <body>
+            <div class="container">
+                <div >
+                    <a href="/">Home</a>
+                </div>
+                <hr/>
+                    <h3>
+                       ${heading}
+                    </h3>
+                <div>
+                   ${date}
+                </div>
+                
+                <div>
+                  ${content}
+                </div>
+           </div>
+        </body>
+        
+        
+        
+    </html>
+    
+    
+    
+    
+    `;
+    return htmlTemplate;
+}
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 app.get('/article-one',function(req,res)
 {
-    res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+    res.sendFile(createTemplate());
 });
 
 app.get('/article-two',function(req,res)

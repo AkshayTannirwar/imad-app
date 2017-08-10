@@ -67,7 +67,7 @@ function createTemplate(data)
     
     
     `;
-    return htmlTemplate;
+    return htmlcontent;
 }
 
 
@@ -77,7 +77,7 @@ app.get('/', function (req, res) {
 
 app.get('/article-one',function(req,res)
 {
-    res.sendFile(createTemplate());
+    res.sendFile(createTemplate(articleone));
 });
 
 app.get('/article-two',function(req,res)

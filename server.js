@@ -29,9 +29,8 @@ var articles = {
   content:`<p>
                     This is the content of my second webapp.Article one is the web app to learn and explore things.This article will help me to built my first web app.I trying to learn nodejs from Tanmai Gopal from Hasura coaching.
                 </p>`
-               
                 },
-    'articlethree' :{
+    'articlethree':{
         
         
   title: 'Article Three | Akshay Tannirwar',

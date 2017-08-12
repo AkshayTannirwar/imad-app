@@ -6,7 +6,8 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articleone = {
+var articles = {
+    'article-one':{
   title: 'Article One | Akshay Tannirwar',
   heading: 'Article One',
   date:'August 10,2017',
@@ -18,8 +19,29 @@ var articleone = {
                 </p>
                  <p>
                      This is the content of my first webapp.Article one is the web app to learn and explore things.This article will help me to built my first web app.I trying to learn nodejs from Tanmai Gopal from Hasura coaching.f
-                </p>
-                `
+                </p>`
+                },
+    'articletwo':{
+    
+  title: 'Article Two | Akshay Tannirwar',
+  heading: 'Article Two',
+  date:'August 10,2017',
+  content:`<p>
+                    This is the content of my second webapp.Article one is the web app to learn and explore things.This article will help me to built my first web app.I trying to learn nodejs from Tanmai Gopal from Hasura coaching.
+                </p>`
+               
+                },
+    'articlethree' :{
+        
+        
+  title: 'Article Three | Akshay Tannirwar',
+  heading: 'Article Three',
+  date:'August 10,2017',
+  content:` <p>
+                This is the content of my Three webapp.Article one is the web app to learn and explore things.This article will help me to built my first web app.I trying to learn nodejs from Tanmai Gopal from Hasura coaching.
+            </p>`
+    }
+                
 };
 
 function createTemplate(data)
@@ -29,7 +51,7 @@ function createTemplate(data)
     var date = data.date;
     var content = data.content;
      
-    var htmlcontent =
+    var htmlcontent =`
     <html>
         <head>
             <title>
@@ -62,10 +84,6 @@ function createTemplate(data)
         
         
     </html>
-    
-    
-    
-    
     `;
     return htmlcontent;
 }
@@ -75,21 +93,11 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',function(req,res)
+app.get('/articleName',function(req,res)
 {
-    res.sendFile(createTemplate(articleone));
+    var articleName = req.param.articleName;
+    res.sendFile(createTemplate(articles[articleName]));
 });
-
-app.get('/article-two',function(req,res)
-{
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-app.get('/article-three',function(req,res)
-{
-    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
-
 
 
 app.get('/ui/style.css', function (req, res) {

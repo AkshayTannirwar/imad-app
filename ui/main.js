@@ -18,8 +18,8 @@ button.onclick = function()
                 span.innerHTML = counter.toString();
             }
         }
-    }
+    };
     //Make a request
     request.open('GET','http://tannirwarakshay.imad.hasura-app.io/counter',true);
     request.send(null);
-}
+};

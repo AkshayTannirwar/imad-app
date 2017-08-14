@@ -43,4 +43,4 @@ submit.onclick = function() {
     ul.innerHTML = list;
     
     
-}
+};

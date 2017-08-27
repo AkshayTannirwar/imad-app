@@ -127,6 +127,21 @@ app.get('/ui/madi.png', function (req, res) {
 
 
 
+function hash(input,salt)
+{
+    //how do we creat hash
+    var hashed = crypto.pbkdf2Sync(input,salt,100000,512,'sha512');
+    return hasded.toString('hex');
+}
+
+app.get('/hash/:input',function(req,res){
+   var hashedString = hash(req.param.input,'this-is-the-random-string');
+   res.send(hashedString);
+});
+
+
+
+
 var pool = new Pool(config);
 app.get('/test-db',function(req,res){
    //Make a select request
